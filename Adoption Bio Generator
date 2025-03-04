@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Improvement Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: royalblue;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        button {
+            background: royalblue;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: darkblue;
+        }
+        .output {
+            background: #e6e6e6;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bio Improvement Tool</h1>
+        <p>Enter a bio below, and we'll improve it for you!</p>
+        
+        <textarea id="bioInput" placeholder="Enter bio here..."></textarea>
+        <button onclick="improveBio()">Improve Bio</button>
+        
+        <h3>Improved Bio:</h3>
+        <div id="bioOutput" class="output"></div>
+        <button onclick="copyBio()">Copy Bio</button>
+    </div>
+
+    <script>
+        function improveBio() {
+            let bio = document.getElementById("bioInput").value;
+            if (bio.trim() === "") {
+                alert("Please enter a bio first!");
+                return;
+            }
+            
+            // Simulating AI improvement (this would be replaced with backend integration)
+            let improvedBio = `Meet an amazing companion! ${bio.charAt(0).toUpperCase() + bio.slice(1)}. This wonderful pet is full of love and ready for a forever home!`;
+            
+            document.getElementById("bioOutput").innerText = improvedBio;
+        }
+
+        function copyBio() {
+            let bioText = document.getElementById("bioOutput").innerText;
+            navigator.clipboard.writeText(bioText).then(() => {
+                alert("Bio copied to clipboard!");
+            });
+        }
+    </script>
+</body>
+</html>
